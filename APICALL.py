@@ -16,5 +16,3 @@ def Generate_Roadmap(role):
     )
 
     return response.choices[0].message.content
-
-print(Generate_Roadmap("software engineer"))
