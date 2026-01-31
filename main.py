@@ -78,7 +78,7 @@ if st.session_state.predicted_roles:
     for role,salary in output:
         prettyrole = role.replace("_"," ").capitalize()
         st.markdown(f"### {prettyrole}")
-        st.markdown(f"#### Expected Salary : {salary[0]}")
+        st.markdown(f"#### Expected Salary : {round(salary[0],2)}Lpa")
         skill_gap,percent = skillgap(skills,JOB_ROLE_SKILLS[role])
         st.text(f"Your Skill Gap : {', '.join(skill_gap)}")
         st.caption(f"Match Percentage : {round(percent*100,2)}%")
