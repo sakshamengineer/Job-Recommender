@@ -92,8 +92,11 @@ if st.session_state.predicted_roles:
     selection = st.selectbox("Select a Job For Roadmap",["Select An Option"] + predict)
     if selection != "Select An Option":
         with st.spinner("Generating roadmap..."):
-            roadmap = Generate_Roadmap(selection)
-            if roadmap:
-                st.markdown(roadmap)
-            else:
-                st.error("Roadmap generation failed.")
+            try:
+                roadmap = Generate_Roadmap(selection)
+                if roadmap:
+                    st.markdown(roadmap)
+                else:
+                    st.error("Roadmap generation failed.")
+            except:
+                st.error("API Key Balance Out")
